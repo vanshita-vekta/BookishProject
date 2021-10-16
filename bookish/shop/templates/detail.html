@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Details{% endblock title %}
+
+{% block body %}
+
+
+<div class="container" style="margin-bottom: 40px;">
+    <div class="row">
+        <div  class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="{{product_object.image}}" height="600px" width="500px">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6"style="border-radius: 10px; border-style: double;">
+            <div class="row">
+                <div class="col-md-12">
+                   <strong>Title: </strong> {{product_object.title}}<br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Author:  </strong>{{product_object.author}}<br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Price: </strong>Rs.{{product_object.price}}/-<br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Genre: </strong>{{product_object.category}}<br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div  class="col-md-12">
+                    <strong>Description: </strong><br>{{product_object.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Bookish {% endblock title %}
+{% block body %}
+<div id="logo">
+  <div class="container" id="inner">
+    One stop to buy any book.
+</div>
+</div>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+
+ 
+    <div class="col-md-9">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade" style="margin:auto;">
+          <div class="numbertext">1 / 4</div>
+          <img src="/static/img/slide1.png" style="width:70%">
+        </div>
+
+        <div class="mySlides fade" style="margin:auto;">
+          <div class="numbertext">2 / 4</div>
+          <img src="/static/img/slide2.png" style="width:70%">
+        </div>
+
+        <div class="mySlides fade" style="margin:auto;">
+          <div class="numbertext">3 / 4</div>
+          <img src="/static/img/slide3.png" style="width:70%">
+        </div>
+        <div class="mySlides fade" style="margin:auto;">
+          <div class="numbertext">4 / 4</div>
+          <img src="/static/img/slide4.png" style="width:70%">
+        </div>
+      </div>
+  </div>
+
+
+<script>
+  var slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 6000); // Change image every 4 seconds
+  }
+</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="/static/img/Fantasy.png" alt="Snow" style="width:100%">
+    </div>
+  
+    <div class="col-md-6">
+      <img src="/static/img/Sci fi.png" alt="Forest" style="width:100%">
+    </div>
+  </div>
+</div>
+<div style="display: inline;">
+<div class="gallery">
+  <a target="_blank" href="/static/img/theHare.jpg">
+    <img src="/static/img/theHare.jpg" alt="Cinque Terre" width="500" height="400">
+  </a>
+  <div class="desc">The Hare is an affecting portrait of Rosie Monroe, resilience and personal transformation under the
+    pin of the male gaze.</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/static/img/FourWinds.jpg">
+    <img src="/static/img/FourWinds.jpg" alt="Forest" width="500" height="400">
+  </a>
+  <div class="desc">Texas, 1934. Millions are out of work and a drought has broken the Great Plains.Farmers figt for
+    survival , revenge begins. </div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/static/img/EveryLastFear.jpg">
+    <img src="/static/img/EveryLastFear.jpg" alt="Northern Lights" width="500" height="400">
+  </a>
+  <div class="desc">“They found the bodies on a Tuesday.”So begins this breathtaking novel that traces the fate of the
+    Pine family in this novel.</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/static/img/FakeAccounts.jpg">
+    <img src="/static/img/FakeAccounts.jpg" alt="Mountains" width="500" height="400">
+  </a>
+  <div class="desc">A woman in a post-election tailspin discovers that her boyfriend is an anonymous online conspiracy
+    theorist.</div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="/static/img/GoodCOmpany.jpg">
+    <img src="/static/img/GoodCOmpany.jpg" alt="Mountains" width="500" height="400">
+  </a>
+  <div class="desc">A warm, incisive new novel about the enduring bonds of marriage and friendship from Cynthia D’Aprix
+    Sweeney.</div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="/static/img/Runner.jpg">
+    <img src="/static/img/Runner.jpg" alt="Mountains" width="500" height="400">
+  </a>
+  <div class="desc">Former homicide cop turned private investigator Cass Raines gets the job done in this novel from
+    author Tracy williams.</div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="/static/img/KlaraandtheSun.jpg">
+    <img src="/static/img/KlaraandtheSun.jpg" alt="Mountains" width="500" height="400">
+  </a>
+  <div class="desc">From her place in the store, Klara, an Artificial Friend with outstanding observational qualities,
+    watches carefully.</div>
+
+</div>
+<div class="gallery">
+  <a target="_blank" href="/static/img/ikigai.jpg">
+    <img src="/static/img/ikigai.jpg" alt="Mountains" width="200" height="200">
+  </a>
+  <div class="desc">The people of Japan believe that everyone has an ikigai. and finding it is the key to a longer and
+    more fulfilled life.</div>
+ </div>
+</div>
+
+
+{% endblock body %}

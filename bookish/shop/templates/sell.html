@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Sell your books{% endblock title %}
+{% block body %}
+
+
+<div class="container mb-3 py-4">
+    <h1 class="text-center" style="font-family:  Freestyle Script;">Sell</h1>
+    <form method="post" action="/sell">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="contact">Contact Number</label>
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+        </div>
+        <div class="form-group">
+            <label for="Name">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title of Book">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Author">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" name="category" placeholder="Genre">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description"
+                placeholder="Book Story Description">
+        </div>
+        <div class="form-group">
+            <label for="condition">Book Condition</label>
+            <input type="text" class="form-control" id="condition" name="condition"
+                placeholder="What is the condition of book?Mention an forldds or tears.">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="container">
+            Explore our collection <a style="color:brown;" href="/books">Explore</a>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

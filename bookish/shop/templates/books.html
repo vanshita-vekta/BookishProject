@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Products{% endblock title %}
+
+{% block body %}
+
+        
+    <div class="container">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-7">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col">
+                            <input type="search" name="book_name" placeholder="Search for books" class="form-control form-cntrol-borderless">
+                        </div>
+                        <div class="col-auto">
+                           <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5">
+                    <form class="card card-sm">
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col">
+                        <label for="genre">Filter by genre:</label>
+                        <select id="genre" name="genre">
+                        <option value="Manga" >Manga</option>
+                          <option value="Fantasy">Fantasy</option>
+                          <option value="Action" >Action</option>
+                          <option value="Horror" >Horror</option>
+                          <option value="Humour" >Humour</option>
+                          <option value="Sociology">Sociology</option>
+                          <option value="Arts">Arts</option>
+                          <option value="History" >History</option>
+                          <option value="Sports">Sports</option>
+                          <option value="Science" >Science</option>
+                          <option value="Thriller" >Thriller</option>
+                        </select>
+                    </div>
+                        <div class="col-auto">
+                        <button class="btn btn-success" type="submit">Search</button>
+                        <a href="/books" class="btn btn-success" type="submit">Clear</a>
+                    </div>
+                    </div>
+                      </form>
+            </div>
+            </div>
+            
+            <div class="row">
+                {% for product in product_objects %}
+                <div class="col-lg-4" >
+                   
+                        <img src="{{product.image}}" alt="" class="thumbnail" >
+                        <div class="box-element product">
+                                <h6><strong>{{product.title}}</strong></h6>
+                            <hr>
+                            <button data-product={{product.id}} data-action="add" class="btn update-cart" style="background-color: #b39f9d;">Add</button>
+                            <a href="/{{product.id}}" class="btn" style="background-color: #b39f9d;">View</a>
+                            
+                                <h6 style="display: inline-block;float:right; color: green;"> Rs.{{product.price|floatformat:2}}/-</h6>
+                        </div>
+                </div>
+                   
+               
+                {% endfor %}
+            </div>
+            <div class="row" style="margin-bottom: 30px; margin-top: 20px;">
+                <div class="col-md-3 offset-md-4">
+                    <ul class="pagination">
+                        {% if product_objects.has_previous %}
+                       <li class="page-item">
+                           <a class="page-link" href="?page={{product_objects.previous_page_number}}">Previous </a>
+                       </li>
+                        {% endif %}
+
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{product_objects.number}}">Current</a>
+                        </li>
+
+                        {% if product_objects.has_next %}
+                        <li class="page-item">
+                            <a class="page-link"  href="?page={{product_objects.next_page_number}}">Next</a>
+                        </li>{% endif %}
+
+
+                    </ul>
+                </div>
+            </div>
+    </div>
+    
+    
+{% endblock body %}
+
+
+
+
+
