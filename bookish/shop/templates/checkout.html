@@ -40,7 +40,7 @@
         </div>
         <br>
 		<div class="box-element hidden" id="payment-info">
-			<button id="place-order">Place order</button>
+			<button class="btn btn-success btn-block" id="place-order">Place order</button>
 		</div>
 			
     </div>
@@ -72,13 +72,19 @@
 
 <script type="text/javascript">
 var form=document.getElementById('form');
-var total='{{order.get_cart_total|floatformat:2}}';
+var total='{{order.get_cart_total}}';
 
 
 form.addEventListener('submit',function(e){
-	submitFormData;
+	e.preventDefault()
+	console.log("Form submitted>>>")
+	document.getElementById('form-button').classList.add('hidden')
+	document.getElementById('payment-info').classList.remove('hidden')
 
-});
+})
+document.getElementById('place-order').addEventListener('click',function(e){
+	submitFormData()
+})
 
 	function submitFormData(){
 		console.log('Order placed')
@@ -93,22 +99,23 @@ form.addEventListener('submit',function(e){
 			'state':null,
 			'zipcode':null,
 		}
+		if (user!='AnonymousUser'){
 		shippingInfo.address=form.address.value;
 		shippingInfo.city=form.city.value;
 		shippingInfo.state=form.state.value;
 		shippingInfo.zipcode=form.zipcode.value;
-
 		userFormData.name=form.name.value;
 		userFormData.email=form.email.value;
+		}
 
-		var url='/process_order'
+		var url='/process_order/'
 		fetch(url,{
 			method:'POST',
 			headers:{
 				'Content-Type':'application/json',
 				'X-CSRFToken':csrftoken,
 			},
-			body:JSON.stringify({'form':userFormData,'shpping':shippingInfo})
+			body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
 			
 		})
 		.then((response)=>response.json())
