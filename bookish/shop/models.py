@@ -90,4 +90,4 @@ class ShippingAddress(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return '{} {} '.format(self.order,self.address)
+		return '{} {} '.format(self.order,self.customer)

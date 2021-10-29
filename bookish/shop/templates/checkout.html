@@ -120,10 +120,13 @@ document.getElementById('place-order').addEventListener('click',function(e){
 		})
 		.then((response)=>response.json())
         .then((data)=>{
-        console.log('success',data);
-		alert("Order Placed");
-        window.location.href="{% url 'books' %}"
-
+			Swal.fire(
+            'Your order is placed',
+            'Thank you',
+        );
+		setTimeout(function () {
+       window.location.href = "{% url 'books' %}"; //will redirect to your blog page (an ex: blog.html)
+    }, 3000);
 	})
 }
 
