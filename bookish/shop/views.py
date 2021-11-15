@@ -3,14 +3,15 @@ from django.shortcuts import render
 from .models import *
 from typing import ContextManager
 from django.shortcuts import render,redirect,HttpResponse
-from datetime import datetime
+
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 import json
-import datetime
+from datetime import datetime
+
 
 
 # Create your views here.
@@ -90,7 +91,7 @@ def updateItem(request):
     return JsonResponse('Item added',safe=False)
 
 def processOrder(request):
-    transaction_id=datetime.datetime.now().timestamp()
+    transaction_id=datetime.now().timestamp()
     data=json.loads(request.body)
     customer=request.user.customer
     order,created=Order.objects.get_or_create(customer=customer,complete=False)
